@@ -1,0 +1,10 @@
+certifi==2018.4.16
+chardet==3.0.4
+colorpy==0.1.1
+idna==2.6
+mss==3.2.0
+numpy==1.14.3
+phue==1.0
+Pillow==5.1.0
+requests==2.18.4
+urllib3==1.22
