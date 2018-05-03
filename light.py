@@ -51,8 +51,8 @@ def change_lights(mon, bulb):
     # im = ImageGrab(bbox=bbox)
     sct_img = sct.grab(bbox)
 
-    '''# save as png
-    output = 'output.png'.format(**monitor)
+    '''# save as pngs
+    output = 'output' + str(mon) + '.png'.format(**monitor)
     mss.tools.to_png(sct_img.rgb, sct_img.size, output=output)'''
 
     # Create an Image
@@ -67,14 +67,17 @@ def change_lights(mon, bulb):
     rgb_tuple = avg(img)
 
     luma = 0.2126 * rgb_tuple[0] + 0.7152 * rgb_tuple[1] + 0.0722 * rgb_tuple[2]
+    if luma > 100:
+        luma = 100
 
     cx, cy = rgb_to_cie(rgb_tuple)
 
     lights[bulb].xy = [cx, cy]
+
     lights[bulb].brightness = int(luma * 2.54)
 
     print('set light to ', cx, ' ', cy)
-    print('luminance: ', luma)
+    print('luminance: ', luma * 2.54)
     print()
 
 b = Bridge('10.0.0.166')
