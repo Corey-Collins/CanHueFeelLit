@@ -2,7 +2,7 @@ certifi==2018.4.16
 chardet==3.0.4
 colorpy==0.1.1
 cycler==0.10.0
-Django==2.0.5
+Django==2.2.13
 idna==2.6
 image==1.5.20
 kiwisolver==1.0.1
